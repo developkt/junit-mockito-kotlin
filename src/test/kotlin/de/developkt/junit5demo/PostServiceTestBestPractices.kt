@@ -88,7 +88,7 @@ internal class PostServiceTestBestPractices {
 
         val result = postService.createPost(userId, post)
 
-        assertFalse(result)
+        assertTrue(result)
         verify(errorLogger).logError(captor.capture())
         assertEquals(Error.ErrorType.DATABASE_ERROR, captor.firstValue.type)
         assertEquals("Could not load user $userId", captor.firstValue.message)
